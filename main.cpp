@@ -77,9 +77,9 @@ int main (int argc, char **argv)
 			auto p = furbs.vel;
 			furbs.go_for(4.73, left_line_mode, 0, 0.03, p);
 			furbs.go_for(0.50, no_line_mode, 0.03, 0.03, p);
-			p.max_vel -= 0.1; //slow down a bit
+			p.max_vel -= 0.25; //slow down a bit
 			furbs.go_for(0.95, left_line_mode, 0.03, 0, p);
-			p.max_vel += 0.1; //regain speed
+			p.max_vel += 0.25; //regain speed
 			
 			mes_dist(1);
 			
