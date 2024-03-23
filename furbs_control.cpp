@@ -61,7 +61,7 @@ void Furbs::go_for (float meters, Linemode lm, float start_off, float end_off, F
 	float dist = 0;
 	
 	float h = pose.h;
-
+	
 	while (true) {
 
 		///////////////////////// Distance Calculation /////////////////////////
@@ -73,10 +73,10 @@ void Furbs::go_for (float meters, Linemode lm, float start_off, float end_off, F
 		float cur_off = (t * end_off) + (t - 1) * start_off;
 
 		if (lm == left_line_mode) {
-			mixer.setEdgeMode(true, p.left_line_offset);
+			mixer.setEdgeMode(true, p.left_line_offset + cur_off);
 		}
 		else if (lm == right_line_mode) {
-			mixer.setEdgeMode(false, p.right_line_offset);
+			mixer.setEdgeMode(false, p.right_line_offset + cur_off);
 		}
 		else {
 			mixer.setDesiredHeading(h);
