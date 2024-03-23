@@ -61,26 +61,26 @@ void Furbs::go_for (float meters, Linemode lm, float start_off, float end_off, F
 	float dist = 0;
 	
 	float h = pose.h;
-	
+
+	float t = (meters / dist);
+	float cur_off = (t * end_off) + (t - 1) * start_off;
+
+	if (lm == left_line_mode) {
+		mixer.setEdgeMode(true, p.left_line_offset + cur_off);
+	}
+	else if (lm == right_line_mode) {
+		mixer.setEdgeMode(false, p.right_line_offset + cur_off);
+	}
+	else {
+		mixer.setDesiredHeading(h);
+	}
+
 	while (true) {
 
 		///////////////////////// Distance Calculation /////////////////////////
 		//TODO make it intergrating instead of abseluote
 		//dist = sqrt((start[0] - pose.x)*(start[0] - pose.x) + (start[1] - pose.y)*(start[1] - pose.y));
 		dist = abs(pose.dist - start_dist);
-		
-		float t = (meters / dist);
-		float cur_off = (t * end_off) + (t - 1) * start_off;
-
-		if (lm == left_line_mode) {
-			mixer.setEdgeMode(true, p.left_line_offset + cur_off);
-		}
-		else if (lm == right_line_mode) {
-			mixer.setEdgeMode(false, p.right_line_offset + cur_off);
-		}
-		else {
-			mixer.setDesiredHeading(h);
-		}
 
 		// Calculate the stopping distance
 		float stopping_distance = cur_vel * cur_vel / (2 * p.max_acc);
