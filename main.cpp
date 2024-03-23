@@ -75,10 +75,10 @@ int main (int argc, char **argv)
 		gpio.setPin(16, 1);
 		{
 			auto p = furbs.vel;
-			furbs.go_for(4.73, left_line_mode, 0, 0.03, p);
-			furbs.go_for(0.50, no_line_mode, 0.03, 0.03, p);
+			furbs.go_for(4.73, left_line_mode, 0, 0.06, p);
+			furbs.go_for(0.50, no_line_mode, 0.03, 0.06, p);
 			p.max_vel -= 0.2; //slow down a bit
-			furbs.go_for(0.95, left_line_mode, 0.03, 0, p);
+			furbs.go_for(0.95, left_line_mode, 0.06, 0, p);
 			p.max_vel += 0.2; //regain speed
 			
 			mes_dist(1);
@@ -106,10 +106,10 @@ int main (int argc, char **argv)
 				mes_dist(5);
 			}
 			//usleep(1*1000*1000);
-			p.max_acc += 0.2;
+			p.max_acc += 0.4;
 			p.max_vel += 0.2;
 			furbs.go_for(0.5, left_line_mode, 0, 0, p);
-			p.max_acc -= 0.2;
+			p.max_acc -= 0.4;
 			p.max_vel -= 0.2;
 			
 			furbs.go_for(1.3, left_line_mode, 0, 0.5, p);
