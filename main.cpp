@@ -73,9 +73,7 @@ int main (int argc, char **argv)
 	if (not service.theEnd) { 
 
 		gpio.setPin(16, 1);
-		auto p = furbs.vel;
-		furbs.go_for(20, left_line_mode, 0, 0.0, p);
-		/*{
+		{
 			auto p = furbs.vel;
 			furbs.go_for(3.73, left_line_mode, 0, 0.03, p);
 			furbs.go_for(0.50, no_line_mode, 0.03, 0.03, p);
@@ -121,7 +119,7 @@ int main (int argc, char **argv)
 			p.max_acc += 0.2;
 			p.max_vel += 0.2;
 			furbs.go_for(4, right_line_mode, 0, 0, p);
-		}*/
+		}
 		gpio.setPin(16, 0);
 	
 	}
