@@ -107,10 +107,10 @@ int main (int argc, char **argv)
 			}
 			//usleep(1*1000*1000);
 			p.max_acc += 0.4;
-			p.max_vel += 0.2;
+			p.max_vel += 0.25;
 			furbs.go_for(0.5, left_line_mode, 0, 0, p);
 			p.max_acc -= 0.4;
-			p.max_vel -= 0.2;
+			p.max_vel -= 0.25;
 			
 			furbs.go_for(1.3, left_line_mode, 0, 0.5, p);
 			p.max_acc -= 0.2;
