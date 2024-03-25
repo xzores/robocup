@@ -75,6 +75,7 @@ int main (int argc, char **argv)
 		gpio.setPin(16, 1);
 		mixer.setDesiredHeading(0);
 		mixer.setVelocity(0.2);
+		usleep(2*1000*1000);
 		/*
 		{
 			auto p = furbs.vel;
