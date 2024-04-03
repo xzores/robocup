@@ -74,8 +74,8 @@ int main (int argc, char **argv)
 
 		gpio.setPin(16, 1);
 		mixer.setEdgeMode(false, 0);
-		mixer.setVelocity(0.2);
-		usleep(2*1000*1000);
+		mixer.setVelocity(0.4);
+		usleep(30*1000*1000);
 		//furbs.go_for(4.73, left_line_mode, 0, 0, p);
 		/*
 		{
