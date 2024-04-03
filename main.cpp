@@ -73,9 +73,8 @@ int main (int argc, char **argv)
 	if (not service.theEnd) { 
 
 		gpio.setPin(16, 1);
-		mixer.setDesiredHeading(0);
-		mixer.setVelocity(0.2);
-		usleep(2*1000*1000);
+		auto p = furbs.vel;
+		furbs.go_for(25, right_line_mode, 0, 0, p);
 		/*
 		{
 			auto p = furbs.vel;
