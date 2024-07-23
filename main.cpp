@@ -73,12 +73,13 @@ int main (int argc, char **argv)
 	if (not service.theEnd) {
 		
 		gpio.setPin(16, 1);
-		//mixer.setEdgeMode(false, 0);
-		//mixer.setVelocity(0.25);
-		//usleep(120*1000*1000);
-		auto p = furbs.vel;
-		furbs.go_for(4.73, left_line_mode, 0, 0, p);
+		mixer.setEdgeMode(false, 0);
+		mixer.setVelocity(0.25);
+		usleep(120*1000*1000);
+		//furbs.go_for(4.73, left_line_mode, 0, 0, p);
+		/*
 		{
+			auto p = furbs.vel;
 			furbs.go_for(4.73, left_line_mode, 0, 0, p);
 			furbs.go_for(0.50, no_line_mode, 0, 0, p);
 			p.max_vel -= 0.2; //slow down a bit
@@ -124,6 +125,7 @@ int main (int argc, char **argv)
 			p.max_vel += 0.2;
 			furbs.go_for(4, right_line_mode, 0.5, 0, p);
 		}
+		*/
 		gpio.setPin(16, 0);
 	
 	}
